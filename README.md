@@ -1,4 +1,4 @@
-#Collatz Conjecture
+# Collatz Conjecture
 Known by various names, the Collatz Conjecture is a mathematical problem in which you take any given positive integer and:
 * If it is even, divide by 2, -OR-
 * If it is odd, multiply by 3 and add 1.
