@@ -1,6 +1,7 @@
 from sympy import isprime
 
 
+
 def collatz_sequence(x: int) -> list:
     """Takes a positive integer and if even divides by 2,
 if odd, multiplies by 3 and adds one.  Returns a list as
@@ -98,16 +99,24 @@ def print_collatz(x, sequence, primelist, evens, odds, sortedcounts):
     print('=' * formatcount)
     print()
     print("Collatz Sequence: {}".format(sequence))
+    print("--Collatz sequence is {} numbers long.".format(len(sequence)))
     print()
     print("Primes in this sequence: {}".format(primelist))
+    print("--Primes sequence is {} numbers long.".format(len(primelist)))
     print()
     print("Evens in this sequence: {}".format(evens))
+    print("--Evens sequence is {} numbers long.".format(len(evens)))
     print()
     print("Odds in this sequence: {}".format(odds))
+    print("--Odds sequence is {} numbers long".format(len(odds)))
     print()
     print("Frequency of each number: {}".format(sortedcounts))
     print()
     print('=' * formatcount)
+
+  
+    
+    
 
 def run_sequences(x):
     """Runs all functions that generate sequences and calls the print_collatz
@@ -123,6 +132,7 @@ function"""
 
     # Call the print_collatz function
     print_collatz(x, sequence, primelist, evens, odds, sortedcounts)
+    
 
 
 # If program is being run independently and not as a function
