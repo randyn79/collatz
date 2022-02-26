@@ -1,4 +1,7 @@
+#!/usr/bin/env python3
+
 from sympy import isprime
+import pandas as pd
 
 
 
@@ -16,12 +19,12 @@ the result."""
         if x % 2 == 0:
             x = x//2
             sequence.append(x)
-            
+
         # If odd, multiply by 3 and add 1, and add to list
         elif x % 2 != 0:
             x = 3 * x + 1
             sequence.append(x)
-            
+
     # Return the list for the Collatz sequence for the number x
     return sequence
 
@@ -92,7 +95,7 @@ def print_collatz(x, sequence, primelist, evens, odds, sortedcounts):
 
     # Set the length of formatting lines (___, ---, ===, etc)
     formatcount = 75
-    
+
     print()
     print('=' * formatcount)
     print('For number {}...'.format(x))
@@ -114,9 +117,17 @@ def print_collatz(x, sequence, primelist, evens, odds, sortedcounts):
     print()
     print('=' * formatcount)
 
-  
-    
-    
+def store_data(x, sequence, primelist, evens, odds, sortedcounts):
+    # under construction
+    df = pd.DataFrame()
+
+    for i in sequence:
+        df[x] = sequence
+    df.to_excel('test.xlsx')
+
+
+
+
 
 def run_sequences(x):
     """Runs all functions that generate sequences and calls the print_collatz
@@ -131,13 +142,13 @@ function"""
     sortedcounts = frequency_count(sequence)
 
     # Call the print_collatz function
-    print_collatz(x, sequence, primelist, evens, odds, sortedcounts)
-    
+    #print_collatz(x, sequence, primelist, evens, odds, sortedcounts)
+    store_data(x, sequence, primelist, evens, odds, sortedcounts)
 
 
 # If program is being run independently and not as a function
 if __name__ == "__main__":
-    
+
     # Input choice of whether to run the program for one number or a range
     # of numbers
     choice = int(input("Enter 1 to run the sequence for one number or enter 2 to run the sequence for a range of numbers: "))
@@ -155,11 +166,5 @@ if __name__ == "__main__":
         end = int(input("Enter the ending number:  "))
 
         for x in range(start, end + 1):
-            
+
             run_sequences(x)
-
-        
-        
-    
-
-
